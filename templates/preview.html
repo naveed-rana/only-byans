@@ -1,0 +1,219 @@
+{% extends 'link.html'%}
+
+
+{%block meta%}
+
+
+
+{% if '=' in res[6]%}
+        {% set u = res[6].split('=')[-1] %}
+      {% elif '/' in res[6]%}
+        {% set u = res[6].split('/')[-1] %}
+      {% endif %}
+
+  <meta property="og:image" content="http://i3.ytimg.com/vi/{{u}}/mqdefault.jpg">
+
+  <meta property="og:title" content="{{res[1]}}">
+  <meta name="description" content="{{res[7]}}">
+
+  
+  <meta name="keywords" content="bayan by Moulana raza saqib,bayan,bayan status,bayan about namaz,bayan by Moulana tariq jameel,bayan 2018,bayan download,bayan all,bayan background music,bayan by moulana raza saqib mp3,mp4,3gp download,bayan raza saqib mustafai 2018">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{%endblock%}
+
+
+
+
+
+
+	{% block title %}{{res[1]}}{%endblock%}
+	
+
+  {% block body %}
+	<nav>
+    <div class="nav-wrapper">
+      <div class="container">
+      <a href="/" class="brand-logo" style="margin-left: 10px;">Only Bayan</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="/namaz">Namaz</a></li>
+        <li><a href="/success">Success</a></li>
+        <li><a href="/motivation">Motivation</a></li>
+        <li><a href="/azan">Beautiful Azan</a></li>
+        <li><a href="/status">Whatsapp Status</a></li>
+        <li><a href="/life-changing">Life Changing</a></li>
+        
+      </ul>
+    </div></div>
+  </nav>
+  <ul class="sidenav" id="mobile-demo">
+
+    <center>
+      <img src="{{url_for('static',filename='img/navlogo.jpg')}}" class="responsive-img">
+      <h3>Wa-Qul-Rabbi-Zidni-ilma</h3>
+    </center>
+     <li><a href="/">Home</a></li>
+        <li><a href="/azan">Azan</a></li>
+        <li><a href="/namaz">Namaz</a></li>
+        <li><a href="/success">Success</a></li>
+        <li><a href="/motivation">Motivation</a></li>
+        <li><a href="/azan">Beautiful Azan</a></li>
+        <li><a href="/status">Whatsapp Status</a></li>
+        <li><a href="/life-changing">Life Changing</a></li>
+       
+  </ul>
+
+
+<div class="row" style="margin-top: 20px;">
+
+  <div class="col s12 m12 l8" style="background-color: #dedede;">
+    <blockquote><h3>{{res[1]}}</h3></blockquote>
+
+    {% if '=' in res[6]%}
+        {% set url_id = res[6].split('=')[-1] %}
+      {% elif '/' in res[6]%}
+        {% set url_id = res[6].split('/')[-1] %}
+      {% endif %}
+
+    <div class="video-container z-depth-3" style="border-radius: 4px;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{url_id}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+
+      <div>
+        <blockquote style="margin-left: 0px;"><h4>Description</h4></blockquote>
+        <p class="flow-text">
+          {{res[7]}}
+        </p>
+      </div>
+
+      <div class="container" style="margin-bottom: 20px;">
+        
+          {{res[8]|safe}}
+      </div>
+
+      <center>
+      <div id="fail" style="display: none;">
+        <img src="{{url_for('static',filename='img/failed.png')}}" height="100px">
+        <p>Please try again</p>
+      </div></center>
+
+      <center>
+        <button class="btn btn-large" id="download_btn">Genrate Download Links</button>
+      </center>
+
+      <center>
+      <div id="pro" style="display: none;">
+        <img src="{{url_for('static',filename='img/wayload.gif')}}" height="100px">
+        <p>Please Wait</p>
+      </div></center>
+
+      
+
+
+      <div id="download">
+        
+      </div>
+
+
+  </div>
+
+
+
+  <div class="col s12 m12 l4">
+    <h4 style="margin: 0;">Related For You</h4>
+    <!-- Related Videos-->
+
+
+    {%for i in related%}
+      {% if '=' in i[6]%}
+        {% set u = i[6].split('=')[-1] %}
+      {% elif '/' in i[6]%}
+        {% set u = i[6].split('/')[-1] %}
+      {% endif %}
+      
+
+      
+    <div class="card horizontal">
+      <div class="card-image" style="padding: 5px;">
+        <a href="/{{i[5]}}/{{i[2]}}">
+          <img src="http://i3.ytimg.com/vi/{{u}}/default.jpg">
+        </a>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+
+          {%if i[1]|length > 65%}
+            {% set title = i[1]%}
+                  <p style="float: left;"><a href="/{{i[5]}}/{{i[2]}}">{{title[:64]}}...</a></p>
+          {%else%}
+              <p style="float: left;"><a href="/{{i[5]}}/{{i[2]}}">{{i[1]}}</a></p>
+              
+          {%endif%}
+          
+          
+          
+
+        </div>
+
+        
+      </div>
+    </div>
+  
+      
+    
+
+  {%endfor%}
+
+
+    <!-- Related Videos -->
+
+  </div>
+  
+</div>
+
+{% block script%}
+
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('#download_btn').click(function(){
+
+      $.ajax({
+        url:'/genrate_download_link',
+        type:'POST',
+        data:{ 'url':'{{res[6]}}' },
+        beforeSend:function(request, settings){
+
+              document.getElementById('fail').style.display = "none";
+        document.getElementById('pro').style.display = "block";
+        document.getElementById('download_btn').style.display = "none";
+
+        },
+        success:function(feed){
+          document.getElementById('pro').style.display = "none";
+          document.getElementById('download_btn').style.display = "none";
+            $('div#download').html(feed.data);
+        },
+        error:function(ffe){
+          document.getElementById('pro').style.display = "none";
+          document.getElementById('fail').style.display = "block";
+          document.getElementById('download_btn').style.display = "block";
+        }
+
+
+      });
+
+    });
+
+  });
+
+</script>
+
+{% endblock %}
+
+
+
+{% endblock %}

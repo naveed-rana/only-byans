@@ -1,0 +1,48 @@
+{% extends 'link.html'%}
+	{% block title %}404 Page Not Found{%endblock%}
+	
+
+  {% block body %}
+	<nav>
+    <div class="nav-wrapper">
+      <div class="container">
+      <a href="/" class="brand-logo" style="margin-left: 10px;">Only Bayan</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="/namaz">Namaz</a></li>
+        <li><a href="/success">Success</a></li>
+        <li><a href="/motivation">Motivation</a></li>
+        <li><a href="/azan">Beautiful Azan</a></li>
+        <li><a href="/status">Whatsapp Status</a></li>
+        <li><a href="/life-changing">Life Changing</a></li>
+        
+      </ul>
+    </div></div>
+  </nav>
+  <ul class="sidenav" id="mobile-demo">
+
+    <center>
+      <img src="{{url_for('static',filename='img/navlogo.jpg')}}" class="responsive-img">
+      <h3>Wa-Qul-Rabbi-Zidni-ilma</h3>
+    </center>
+     <li><a href="/">Home</a></li>
+        <li><a href="/azan">Azan</a></li>
+        <li><a href="/namaz">Namaz</a></li>
+        <li><a href="/success">Success</a></li>
+        <li><a href="/motivation">Motivation</a></li>
+        <li><a href="/azan">Beautiful Azan</a></li>
+        <li><a href="/status">Whatsapp Status</a></li>
+        <li><a href="/life-changing">Life Changing</a></li>
+       
+  </ul>
+
+
+<div style="margin-top: 50px;">
+<center>
+	<img src="{{url_for('static',filename='img/404.png')}}">
+	<h4>404 Page Not Found</h4>
+</center>
+</div>
+
+{% endblock %}

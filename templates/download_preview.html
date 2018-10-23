@@ -1,0 +1,49 @@
+<br><br>
+<blockquote style="margin-left: 0px;"><h4>Download Video</h4></blockquote>
+
+<table class="highlight">
+        <thead>
+          <tr>
+              <th>Format</th>
+              <th>Resolution</th>
+              <th>MB</th>
+          </tr>
+        </thead>
+
+        <tbody>
+    {% for i in video.streams%}
+
+          <tr>
+            {% set mb = i.get_filesize()/1024/1024 %}
+            <td>{{i.extension}}</td>
+            <td>{{i.resolution}}</td>
+            <td><a target="new" href="{{i.url}}" class="btn">Download {{ mb|round(2)}}MB</a></td>
+          </tr>
+       
+
+{%endfor%} 
+</tbody>
+    </table>
+
+<blockquote style="margin-left: 0px;"><h4>Download Audio</h4></blockquote>
+<table class="highlight">
+        <thead>
+          <tr>
+              <th>Format</th>
+              <th>MB</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for i in video.audiostreams%}
+
+          <tr>
+            {% set mb = i.get_filesize()/1024/1024 %}
+            <td>{{i.extension}}</td>
+            <td><a target="new" href="{{i.url}}" class="btn">Download {{ mb|round(2)}}MB</a></td>
+          </tr>
+       
+
+{%endfor%} 
+</tbody>
+    </table>

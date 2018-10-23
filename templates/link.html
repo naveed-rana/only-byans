@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+{%block meta%}
+
+
+{%endblock%}
+<meta name="author" content="Abdul Manan">
+
+
+	<title>{% block title%}{%endblock%} | OnlyBayan</title>
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/materialize.min.css')}}">
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="icon" href="{{url_for('static',filename='img/favlogo.png')}}" type="image/jpg" >
+
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    
+</head>
+<body bgcolor="#efeeee">
+{% block body %}
+
+{% endblock %}
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Search Bayans</h4>
+      <div class="search">
+    <form action="/1/search" method="GET">
+     <input type="search" name="q" placeholder="Search">
+     <center><button class="btn btn-large">Search</button></center>
+    </form>
+  </div>
+    </div>
+  </div>
+<div class="fixed-action-btn">
+  <button data-target="modal1" class="btn-floating pulse btn-large waves-effect waves-light modal-trigger"><i class="material-icons">search</i></button></div>
+
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/materialize.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/app.js')}}"></script>
+{% block script %}
+
+{%endblock%}
+</body>
+</html>

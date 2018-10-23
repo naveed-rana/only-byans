@@ -1,0 +1,18 @@
+{% extends 'link.html'%}
+
+{% block title %}Admin-login{% endblock %}
+
+{% block body %}
+<form action="/authentication" method="post">
+
+
+<div class="container" style="margin-top: 10%;">
+<center>
+	<input type="text" name="admin" placeholder="Admin Username" style="width: 40%;"><br>
+	<input type="password" name="password" placeholder="Admin Password" style="width: 40%;"><br>
+	<input type="submit" value="Login" class="btn btn-large"></center>
+</div>
+	
+</form>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+nav{
+	background-color: #f16334;
+}
+nav ul li:hover{
+	border-top: 3px solid #fff;
+}
+.sidenav li:hover{
+	border-bottom: 3px solid #f16334;
+}
+
+.btn, .btn-large, .btn-small {
+	background-color: #f16334;
+
+}
+.btn:hover, .btn-large:hover, .btn-small:hover{
+	background-color: #ff5d27;
+}
+
+.sidenav{
+	width: 250px;
+}
+.page-footer{
+	background-color: #00923f;
+}
+
+.nactive {
+    background-color: rgba(0,0,0,0.3);
+}
+
+
+@media only screen and (min-width: 993px){
+.container {
+    width: 95%;
+	}
+
+	
+}
+
+@media only screen and (min-width: 601px){
+.container {
+    width: 98%;
+	}
+	
+
+}
+blockquote{
+	border-left: 5px solid #f16334;
+	margin-left: 10px;
+}
+nav .brand-logo{
+	font-family: cursive;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea{
+	border-bottom: 1px solid #f16334;
+	font-size: 20px;
+	color: #f16334;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #f16334;
+  -webkit-box-shadow: 0 1px 0 0 #f16334;
+          box-shadow: 0 1px 0 0 #f16334;
+}
+.search{
+	margin-top: 10px;
+}

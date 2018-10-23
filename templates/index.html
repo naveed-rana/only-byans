@@ -1,0 +1,332 @@
+{% extends 'link.html'%}
+
+
+  {%block meta%}
+
+  <meta name="description" content="We are provide islamic bayan.In which all islamic bayan available.Beautiful collection of best muslim bayan with many other inspirational islamic sayings in english | Urdu.">
+  
+  <meta name="keywords" content="bayan by Moulana raza saqib,bayan,bayan status,bayan about namaz,bayan by Moulana tariq jameel,bayan 2018,bayan download,bayan all,bayan background music,bayan by moulana raza saqib mp3,mp4,3gp download,bayan raza saqib mustafai 2018">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{%endblock%}
+
+
+	{% block title %}Best Isamic Bayans{%endblock%}
+	
+
+  {% block body %}
+	<nav>
+    <div class="nav-wrapper">
+      <div class="container">
+      <a href="/" class="brand-logo" style="margin-left: 10px;">Only Bayan</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/" class="nactive">Home</a></li>
+        <li><a href="/namaz">Namaz</a></li>
+        <li><a href="/success">Success</a></li>
+        <li><a href="/motivation">Motivation</a></li>
+        <li><a href="/azan">Beautiful Azan</a></li>
+        <li><a href="/status">Whatsapp Status</a></li>
+        <li><a href="/life-changing">Life Changing</a></li>
+        
+      </ul>
+    </div></div>
+  </nav>
+  <ul class="sidenav" id="mobile-demo">
+
+    <center>
+      <img src="{{url_for('static',filename='img/navlogo.jpg')}}" class="responsive-img">
+      <h3>Wa-Qul-Rabbi-Zidni-ilma</h3>
+    </center>
+     <li><a href="/">Home</a></li>
+        <li><a href="/azan">Azan</a></li>
+        <li><a href="/namaz">Namaz</a></li>
+        <li><a href="/success">Success</a></li>
+        <li><a href="/motivation">Motivation</a></li>
+        <li><a href="/azan">Beautiful Azan</a></li>
+        <li><a href="/status">Whatsapp Status</a></li>
+        <li><a href="/life-changing">Life Changing</a></li>
+       
+  </ul>
+
+  <div class="container">
+  <div class="search">
+    <form action="/1/search" method="GET">
+     <input type="search" name="q" placeholder="Search">
+     <center><button class="btn btn-large">Search</button></center>
+    </form>
+  </div>
+  </div>
+
+
+
+<div class="row">
+  <blockquote><h3 class="h3">Namaz Bayans</h3></blockquote>
+  {%for i in namaz%}
+    {% if '=' in i[6]%}
+        {% set u = i[6].split('=')[-1] %}
+      {% elif '/' in i[6]%}
+        {% set u = i[6].split('/')[-1] %}
+      {% endif %}
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <a href="/{{i[5]}}/{{i[2]}}">
+          <img src="http://i3.ytimg.com/vi/{{u}}/mqdefault.jpg"></a>
+          <span class="card-title">by {{i[3]}}</span>
+          <a href="/{{i[5]}}/{{i[2]}}" class="btn-floating btn-large halfway-fab waves-effect waves-light"><i class="material-icons">file_download</i></a>
+        </div>
+        <div class="card-content">
+          {%if i[1]|length > 58%}
+            {% set title = i[1]%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{title[:57]}}...</h5></a>
+          {%else%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{i[1]}}</h5></a>
+          {%endif%}
+          {%if i[7]|length > 130%}
+            {% set para = i[7]%}
+            <p>{{para[:130]}}...<a href="/{{i[5]}}/{{i[2]}}">More</a></p>
+            {%else%}
+              <p>{{i[7]}}</p>
+          {%endif%}
+        </div>
+        <div class="card-action">
+          <p>You can download video in HD,MP4,3gp and Audio(mp3)</p>
+          <center><a href="/{{i[5]}}/{{i[2]}}">Download Video</a></center>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+    
+  </div><center>
+      <a href="/namaz/" class="btn btn-large">See More</a>
+    </center>
+
+
+<div class="row">
+  <blockquote><h3 class="h3">Success Life Bayans</h3></blockquote>
+  {%for i in success%}
+    {% if '=' in i[6]%}
+        {% set u = i[6].split('=')[-1] %}
+      {% elif '/' in i[6]%}
+        {% set u = i[6].split('/')[-1] %}
+      {% endif %}
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <a href="/{{i[5]}}/{{i[2]}}">
+          <img src="http://i3.ytimg.com/vi/{{u}}/mqdefault.jpg"></a>
+          <span class="card-title">by {{i[3]}}</span>
+          <a href="/{{i[5]}}/{{i[2]}}" class="btn-floating btn-large halfway-fab waves-effect waves-light"><i class="material-icons">file_download</i></a>
+        </div>
+        <div class="card-content">
+          {%if i[1]|length > 58%}
+            {% set title = i[1]%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{title[:57]}}...</h5></a>
+          {%else%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{i[1]}}</h5></a>
+          {%endif%}
+          {%if i[7]|length > 130%}
+            {% set para = i[7]%}
+            <p>{{para[:130]}}...<a href="/{{i[5]}}/{{i[2]}}">More</a></p>
+            {%else%}
+              <p>{{i[7]}}</p>
+          {%endif%}
+        </div>
+        <div class="card-action">
+          <p>You can download video in HD,MP4,3gp and Audio(mp3)</p>
+          <center><a href="/{{i[5]}}/{{i[2]}}">Download Video</a></center>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+    
+  </div><center>
+      <a href="/success/" class="btn btn-large">See More</a>
+    </center>
+
+
+
+<div class="row">
+  <blockquote><h3 class="h3">Motivation Bayans</h3></blockquote>
+  {%for i in motivation%}
+    {% if '=' in i[6]%}
+        {% set u = i[6].split('=')[-1] %}
+      {% elif '/' in i[6]%}
+        {% set u = i[6].split('/')[-1] %}
+      {% endif %}
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <a href="/{{i[5]}}/{{i[2]}}">
+          <img src="http://i3.ytimg.com/vi/{{u}}/mqdefault.jpg"></a>
+          <span class="card-title">by {{i[3]}}</span>
+          <a href="/{{i[5]}}/{{i[2]}}" class="btn-floating btn-large halfway-fab waves-effect waves-light"><i class="material-icons">file_download</i></a>
+        </div>
+        <div class="card-content">
+          {%if i[1]|length > 58%}
+            {% set title = i[1]%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{title[:57]}}...</h5></a>
+          {%else%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{i[1]}}</h5></a>
+          {%endif%}
+          {%if i[7]|length > 130%}
+            {% set para = i[7]%}
+            <p>{{para[:130]}}...<a href="/{{i[5]}}/{{i[2]}}">More</a></p>
+            {%else%}
+              <p>{{i[7]}}</p>
+          {%endif%}
+        </div>
+        <div class="card-action">
+          <p>You can download video in HD,MP4,3gp and Audio(mp3)</p>
+          <center><a href="/{{i[5]}}/{{i[2]}}">Download Video</a></center>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+    
+  </div><center>
+      <a href="/motivation/" class="btn btn-large">See More</a>
+    </center>
+
+
+
+
+<div class="row">
+  <blockquote><h3 class="h3">Beautiful Azan And Bayans</h3></blockquote>
+  {%for i in azan%}
+    {% if '=' in i[6]%}
+        {% set u = i[6].split('=')[-1] %}
+      {% elif '/' in i[6]%}
+        {% set u = i[6].split('/')[-1] %}
+      {% endif %}
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <a href="/{{i[5]}}/{{i[2]}}">
+          <img src="http://i3.ytimg.com/vi/{{u}}/mqdefault.jpg"></a>
+          <span class="card-title">by {{i[3]}}</span>
+          <a href="/{{i[5]}}/{{i[2]}}" class="btn-floating btn-large halfway-fab waves-effect waves-light"><i class="material-icons">file_download</i></a>
+        </div>
+        <div class="card-content">
+          {%if i[1]|length > 58%}
+            {% set title = i[1]%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{title[:57]}}...</h5></a>
+          {%else%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{i[1]}}</h5></a>
+          {%endif%}
+          {%if i[7]|length > 130%}
+            {% set para = i[7]%}
+            <p>{{para[:130]}}...<a href="/{{i[5]}}/{{i[2]}}">More</a></p>
+            {%else%}
+              <p>{{i[7]}}</p>
+          {%endif%}
+        </div>
+        <div class="card-action">
+          <p>You can download video in HD,MP4,3gp and Audio(mp3)</p>
+          <center><a href="/{{i[5]}}/{{i[2]}}">Download Video</a></center>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+    
+  </div><center>
+      <a href="/azan/" class="btn btn-large">See More</a>
+    </center>
+
+
+
+
+<div class="row">
+  <blockquote><h3 class="h3">Islamic Whatsapp Status</h3></blockquote>
+  {%for i in status%}
+    {% if '=' in i[6]%}
+        {% set u = i[6].split('=')[-1] %}
+      {% elif '/' in i[6]%}
+        {% set u = i[6].split('/')[-1] %}
+      {% endif %}
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <a href="/{{i[5]}}/{{i[2]}}">
+          <img src="http://i3.ytimg.com/vi/{{u}}/mqdefault.jpg"></a>
+          <span class="card-title">by {{i[3]}}</span>
+          <a href="/{{i[5]}}/{{i[2]}}" class="btn-floating btn-large halfway-fab waves-effect waves-light"><i class="material-icons">file_download</i></a>
+        </div>
+        <div class="card-content">
+          {%if i[1]|length > 58%}
+            {% set title = i[1]%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{title[:57]}}...</h5></a>
+          {%else%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{i[1]}}</h5></a>
+          {%endif%}
+          {%if i[7]|length > 130%}
+            {% set para = i[7]%}
+            <p>{{para[:130]}}...<a href="/{{i[5]}}/{{i[2]}}">More</a></p>
+            {%else%}
+              <p>{{i[7]}}</p>
+          {%endif%}
+        </div>
+        <div class="card-action">
+          <p>You can download video in HD,MP4,3gp and Audio(mp3)</p>
+          <center><a href="/{{i[5]}}/{{i[2]}}">Download Video</a></center>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+    
+  </div><center>
+      <a href="/status/" class="btn btn-large">See More</a>
+    </center>
+
+
+
+<div class="row">
+  <blockquote><h3 class="h3">Life Changing Bayans</h3></blockquote>
+  {%for i in life%}
+    {% if '=' in i[6]%}
+        {% set u = i[6].split('=')[-1] %}
+      {% elif '/' in i[6]%}
+        {% set u = i[6].split('/')[-1] %}
+      {% endif %}
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <a href="/{{i[5]}}/{{i[2]}}">
+          <img src="http://i3.ytimg.com/vi/{{u}}/mqdefault.jpg"></a>
+          <span class="card-title">by {{i[3]}}</span>
+          <a href="/{{i[5]}}/{{i[2]}}" class="btn-floating btn-large halfway-fab waves-effect waves-light"><i class="material-icons">file_download</i></a>
+        </div>
+        <div class="card-content">
+          {%if i[1]|length > 58%}
+            {% set title = i[1]%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{title[:57]}}...</h5></a>
+          {%else%}
+              <a href="/{{i[5]}}/{{i[2]}}"><h5>{{i[1]}}</h5></a>
+          {%endif%}
+          {%if i[7]|length > 130%}
+            {% set para = i[7]%}
+            <p>{{para[:130]}}...<a href="/{{i[5]}}/{{i[2]}}">More</a></p>
+            {%else%}
+              <p>{{i[7]}}</p>
+          {%endif%}
+        </div>
+        <div class="card-action">
+          <p>You can download video in HD,MP4,3gp and Audio(mp3)</p>
+          <center><a href="/{{i[5]}}/{{i[2]}}">Download Video</a></center>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+    
+  </div><center>
+      <a href="/life-changing/" class="btn btn-large">See More</a>
+    </center>
+
+
+
+
+
+
+
+{% endblock %}
