@@ -1,7 +1,14 @@
-FROM ubuntu:latest
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential python-mysqldb libmysqlclient-dev
-WORKDIR /app
-COPY . /app
-RUN pip install -r requirements.txt
-CMD gunicorn app:app --bind 0.0.0.0:$PORT --reload
+FROM python:latest
+
+RUN mkdir server
+
+ADD . /server
+
+RUN cd server && \
+    pip install --upgrade pip && \
+    pip install -r requirements.txt
+
+EXPOSE 5000
+
+CMD cd server && \
+    python app.py 
